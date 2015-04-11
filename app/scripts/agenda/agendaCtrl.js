@@ -5,15 +5,5 @@
 
 angular.module('siteFrancoiseApp')
   .controller('agendaCtrl',['$rootScope','$state', function ($rootScope,$state) {
-    setAgendaActive($state);
-    function setAgendaActive($state){
-      if($state.$current.name==='agenda'){
-        $rootScope.agendaIsActive=true;
-        $rootScope.accueilIsActive=false;
-        $rootScope.audiothequeIsActive=false;
-        $rootScope.videothequeIsActive=false;
-        $rootScope.contactIsActive=false;
-        $rootScope.photothequeIsActive=false;
-      }
-    }
+
   }]);

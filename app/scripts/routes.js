@@ -14,9 +14,13 @@ angular
   ]).config(['$stateProvider', '$urlRouterProvider',function ($stateProvider,$urlRouterProvider) {
 
   $stateProvider
-    .state('main', {
+    .state('accueil', {
       url: '/home',
       views: {
+        'sub@': {
+          templateUrl: 'views/menu/menu.html',
+          controller: 'menuCtrl'
+        },
         'content@': {
           templateUrl: 'views/main.html',
           controller: 'MainCtrl'
@@ -26,6 +30,10 @@ angular
     .state('about', {
       url:'/about',
       views:{
+        'sub@': {
+          templateUrl: 'views/menu/menu.html',
+          controller: 'menuCtrl'
+        },
         'content@':{
           templateUrl: 'views/about.html',
           controller: 'AboutCtrl'
@@ -37,6 +45,10 @@ angular
     .state('videotheque', {
       url:'/videotheque',
       views:{
+        'sub@': {
+          templateUrl: 'views/menu/menu.html',
+          controller: 'menuCtrl'
+        },
         'content@':{
           templateUrl: 'views/videotheque/videotheque.html',
           controller: 'videothequeCtrl'
@@ -48,6 +60,10 @@ angular
     .state('audiotheque', {
       url:'/audiotheque',
       views:{
+        'sub@': {
+          templateUrl: 'views/menu/menu.html',
+          controller: 'menuCtrl'
+        },
         'content@':{
           templateUrl: 'views/audiotheque/audiotheque.html',
           controller: 'audiothequeCtrl'
@@ -59,6 +75,10 @@ angular
     .state('phototheque', {
       url:'/phototheque',
       views:{
+        'sub@': {
+          templateUrl: 'views/menu/menu.html',
+          controller: 'menuCtrl'
+        },
         'content@':{
           templateUrl: 'views/phototheque/phototheque.html',
           controller: 'photothequeCtrl'
@@ -70,6 +90,10 @@ angular
     .state('agenda', {
       url:'/agenda',
       views:{
+        'sub@': {
+          templateUrl: 'views/menu/menu.html',
+          controller: 'menuCtrl'
+        },
         'content@':{
           templateUrl: 'views/agenda/agenda.html',
           controller: 'agendaCtrl'
@@ -81,6 +105,10 @@ angular
     .state('contact', {
       url:'/contact',
       views:{
+        'sub@': {
+          templateUrl: 'views/menu/menu.html',
+          controller: 'menuCtrl'
+        },
         'content@':{
           templateUrl: 'views/contact/contact.html',
           controller: 'contactCtrl'

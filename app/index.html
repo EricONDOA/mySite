@@ -19,7 +19,8 @@
 <body ng-app="siteFrancoiseApp">
 <div class="container">
   <div class="row">
-      <div class="col-md-12" id="header" ng-include="'./views/menu/menu.html'" style="margin-bottom: 60px"></div>
+      <!--<div class="col-md-12" id="header" ng-include="'./views/menu/menu.html'" style="margin-bottom: 60px"></div>-->
+      <div id="subheader" ui-view="sub"></div>
       <div id="content" ui-view="content"></div>
       <div class="col-md-12" id="footer" ng-include="'./views/menu/footer.html'"></div>
   </div>
@@ -52,6 +53,7 @@
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -62,6 +64,7 @@
 <script src="scripts/audiotheque/audiothequeCtrl.js"></script>
 <script src="scripts/phototheque/photothequeCtrl.js"></script>
 <script src="scripts/agenda/agendaCtrl.js"></script>
+<script src="scripts/menu/menuCtrl.js"></script>
 <script src="scripts/contact/contactCtrl.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/about.js"></script>

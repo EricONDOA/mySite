@@ -17,4 +17,6 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.router'
-  ]);
+  ]).run(['$rootScope','$state',function($rootScope) {
+
+    }]);
