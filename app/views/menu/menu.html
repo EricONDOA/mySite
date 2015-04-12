@@ -15,9 +15,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li ng-repeat="menuItem in menuItems" ng-class="{'active':setActive(menuItem.active)}" ><a ui-sref="{{menuItem.urlName}}"><i class="{{menuItem.class}}"></i> {{menuItem.name}}</a></li>
+            <li class="menuItem"   ng-repeat="menuItem in menuItems" ng-class="{'active':setActive(menuItem.active)}" ><a ui-sref="{{menuItem.urlName}}"><i class="{{menuItem.class}}"></i> {{menuItem.name|lowercase}}</a></li>
           </ul>
-          <div class="weather" style="float:right;color:white;padding:10px;">{{date}} --- {{hour}} ---  {{temp}}° {{weather}}<i class="icon" ng-class="icon"></i>{{message}}</div>
+          <div class="weather" >{{date}} --- {{hour}} ---  {{temp}}° {{weather}}<i class="icon" ng-class="icon"></i>{{message}}</div>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>

@@ -8,37 +8,37 @@ angular.module('siteFrancoiseApp').service('menu.menuService',['$q',function($q)
     initializeMenu: function () {
       var defer = $q.defer();
       var menu = [{
-        'name': 'Accueil',
+        'name': 'ACCUEIL',
         'urlName': 'accueil',
         'class': 'glyphicon glyphicon-home',
         'active': 'accueil'
       },
         {
-          'name': 'Audiothèque',
+          'name': 'AUDIOTHEQUE',
           'urlName': 'audiotheque',
           'class': 'glyphicon glyphicon-music',
           'active': 'audiotheque'
         },
         {
-          'name': 'Vidéothèque',
+          'name': 'VIDEOTHEQUE',
           'urlName': 'videotheque',
           'class': 'glyphicon glyphicon-film',
           'active': 'videotheque'
         },
         {
-          'name': 'Photothèque',
+          'name': 'PHOTOTHEQUE',
           'urlName': 'phototheque',
           'class': 'glyphicon glyphicon-picture',
           'active': 'phototheque'
         },
         {
-          'name': 'Agenda',
+          'name': 'AGENDA',
           'urlName': 'agenda',
           'class': 'glyphicon glyphicon-calendar',
           'active': 'agenda'
         },
         {
-          'name': 'Contact',
+          'name': 'CONTACT',
           'urlName': 'contact',
           'class': 'glyphicon glyphicon-pencil',
           'active': 'contact'
@@ -57,14 +57,15 @@ angular.module('siteFrancoiseApp').service('menu.menuService',['$q',function($q)
       return defer.promise;
     },
     formatDate: function (date) {
-      var jour = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
-      var mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre",];
-      if (date.getDay() == 0) {
-        var jourSemaine = jour[6];
+      var jour = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+      var mois = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+      var jourSemaine;
+      if (date.getDay() === 0) {
+         jourSemaine = jour[6];
       } else {
-        var jourSemaine = jour[date.getDay() - 1];
+        jourSemaine = jour[date.getDay() - 1];
       }
-      var formattedDate = jourSemaine + " " + (date.getDate()) + " " + mois[date.getMonth()] + " " + date.getFullYear();
+      var formattedDate = jourSemaine + ' ' + (date.getDate()) + ' ' + mois[date.getMonth()] + ' ' + date.getFullYear();
       return formattedDate;
     },
     setHorloge: function () {

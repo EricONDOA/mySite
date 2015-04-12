@@ -3,10 +3,16 @@
  */
 'use strict';
 angular.module('siteFrancoiseApp').factory('weatherService',['$q','$http',function($q,$http){
+  var cachedWeather={};
   return{
    getWeather:function(city) {
      var url = 'http://api.openweathermap.org/data/2.5/weather';
      var defer=$q.defer();
+
+     if(!_.isUndefined(cachedWeather)&& !_.isEmpty(cachedWeather) ){
+
+       defer.resolve(cachedWeather);
+     }
      $http.jsonp(url, {
        params: {
          q: city,
@@ -14,10 +20,11 @@ angular.module('siteFrancoiseApp').factory('weatherService',['$q','$http',functi
          callback: 'JSON_CALLBACK'
        }
      }).
-       success(function (data, status, headers, config) {
+       success(function (data) {
+         cachedWeather=data;
          defer.resolve(data);
        }).
-       error(function (data, status, headers, config) {
+       error(function (data) {
          // Log an error in the browser's console.
          console.log('Could not retrieve data from ' + url);
          defer.reject(data);
@@ -113,6 +120,6 @@ angular.module('siteFrancoiseApp').factory('weatherService',['$q','$http',functi
       return display;
     }
 
-}
+};
 }]);
 

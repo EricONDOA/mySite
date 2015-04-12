@@ -3,4 +3,4 @@
  */
 'use strict';
 
-var menu=angular.module('menu',['LocalStorage']);
+angular.module('menu',['LocalStorage']);

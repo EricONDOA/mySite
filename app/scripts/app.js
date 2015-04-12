@@ -19,7 +19,8 @@ angular
     'ui.router',
     'ngStorage',
     'weather',
-    'menu'
+    'menu',
+    'pascalprecht.translate'
   ]).run(['$rootScope','$state',function() {
 
     }]);
