@@ -4,7 +4,7 @@
 'use strict';
 
 angular.module('siteFrancoiseApp')
-  .controller('audiothequeCtrl',['$scope','$rootScope','$state', function ($scope,$rootScope,$state) {
-
+  .controller('audiothequeCtrl',['$scope', function ($scope) {
+    $scope.nothing='';
 
   }]);

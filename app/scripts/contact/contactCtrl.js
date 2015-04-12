@@ -4,6 +4,6 @@
 'use strict';
 
 angular.module('siteFrancoiseApp')
-  .controller('contactCtrl',['$scope','$rootScope','$state', function ($scope,$rootScope,$state) {
-
+  .controller('contactCtrl',['$scope', function ($scope) {
+    $scope.nothing='';
   }]);

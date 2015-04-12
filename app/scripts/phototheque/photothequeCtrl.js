@@ -4,6 +4,7 @@
 'use strict';
 
 angular.module('siteFrancoiseApp')
-  .controller('photothequeCtrl',['$scope','$rootScope','$state', function ($scope,$rootScope,$state) {
+  .controller('photothequeCtrl',['$scope', function ($scope) {
+    $scope.nothing='';
 
   }]);

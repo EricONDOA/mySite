@@ -4,46 +4,30 @@
 'use strict';
 
 angular.module('siteFrancoiseApp')
-  .controller('menuCtrl', ['$scope', '$rootScope','$state', function ($scope, $rootScope,$state) {
-    $scope.menuItems = [{
-      'name': 'Accueil',
-      'urlName': 'accueil',
-      'class':'glyphicon glyphicon-home',
-      'active':'accueil'
-    },
-      {
-        'name': 'Audiothèque',
-        'urlName': 'audiotheque',
-        'class':'glyphicon glyphicon-music',
-        'active':'audiotheque'
-      },
-      {
-        'name': 'Vidéothèque',
-        'urlName':'videotheque',
-        'class':'glyphicon glyphicon-film',
-        'active':'videotheque'
-      },
-      {
-        'name': 'Photothèque',
-        'urlName':'phototheque',
-        'class':'glyphicon glyphicon-picture',
-        'active':'phototheque'
-      },
-      {
-        'name': 'Agenda',
-        'urlName':'agenda',
-        'class':'glyphicon glyphicon-calendar',
-        'active':'agenda'
-      },
-      {
-        'name': 'Contact',
-        'urlName':'contact',
-        'class':'glyphicon glyphicon-pencil',
-        'active':'contact'
-      }];
+  .controller('menuCtrl', ['$scope', '$rootScope','$state','menu.menuService','weatherService','$interval', function ($scope, $rootScope,$state,menuService,weatherService,$interval) {
+    menuService.initializeMenu().then(function(menu){
+      $scope.menuItems = menu;
+    });
+    $scope.date=menuService.formatDate(new Date());
+    $interval(function(){
+      var date = new Date();
+      var hour = '';
+      hour += '' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
+      $scope.hour=hour;
+    },1000);
+    menuService.getVisitorLocation().then(function(location){
+      weatherService.getWeather(location.city).then(function(data){
+        $scope.temp=Math.round(data.main.temp);
+        $scope.weather=weatherService.realWeatherState(weatherService.displayCloud(data.weather[0].id));
+        $scope.icon=weatherService.displayCloud(data.weather[0].id);
+
+      });
+      $scope.city=location.city;
+    });
     $scope.setActive=function(state){
         if($state.$current.name===state){
-          return true
+          return true;
         }
     };
+
   }]);

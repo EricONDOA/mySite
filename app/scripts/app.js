@@ -16,7 +16,10 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.router'
-  ]).run(['$rootScope','$state',function($rootScope) {
+    'ui.router',
+    'ngStorage',
+    'weather',
+    'menu'
+  ]).run(['$rootScope','$state',function() {
 
     }]);

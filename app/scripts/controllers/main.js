@@ -8,7 +8,7 @@
  * Controller of the siteFrancoiseApp
  */
 angular.module('siteFrancoiseApp')
-  .controller('MainCtrl',['$scope','$rootScope','$state', function ($scope,$rootScope,$state) {
+  .controller('MainCtrl',['$scope', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
